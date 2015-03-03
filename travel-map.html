@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Map</title>
+  <style type="text/css">
+    html, body, #map-canvas {
+      height: 100%;
+      margin: 0px;
+      padding: 0px
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+  <script type="text/javascript">
+    function initialize() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          console.log(position.coords.latitude, position.coords.longitude);
+          var position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          console.log(position)
+        });
+      }
+      else {
+        var position = new google.maps.LatLng(48.755871, -91.624202);
+      }
+      var mapOptions = {
+        zoom: 4,
+        center: position
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+</head>
+<body>
+
+  <div id="map-canvas"></div>
+
+</body>
+</html>
