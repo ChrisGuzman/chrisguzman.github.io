@@ -16,6 +16,14 @@
       $(document).ready(function () {
         $('#main_content').headsmart()
       })
+
+      $.ajax({
+          type: 'GET',
+          url: 'https://www.googleapis.com/calendar/v3/calendars/2tqj1e1mgt311j2atnogifnqms%40group.calendar.google.com/events?key=AIzaSyC6lCJXE6J54lVXp7WeevQOxQlRqgbSETI&orderBy=startTime&singleEvents=true&timeMin=2015-11-18T15:11:45.855Z',
+          success: function(data) {
+              console.log(data)
+          }
+      });
     </script>
     <title>Chris Guzman</title>
     <style type="text/css">
