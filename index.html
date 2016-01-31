@@ -3,30 +3,73 @@
 <head>
   <title>All about Chris</title>
 
-
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
-  <h1>Chris Guzman</h1>
+
+  <nav>
+    <ul class="navigation">
+      <li>
+        <a href="/AboutMe/index.html">About Me</a>
+      </li>
+      <li>
+        <a href="/Resources/index.html">Resources</a>
+      </li>
+    </ul>
+  </nav>
+
+  <button id="clickMe" onclick="sayHi()">Click Me!</button>
 
 
-    <p>Learn more about Chris! He could be your bestest friend.</p>
+  <h1 id="center-title">Chris Guzman</h1>
 
-    <p>Hi! I'm <strong><em>Chris!</em></strong></p>
+
+    <p class="red-back">Learn more about <span id="super-important">Chris!</span> He could be your bestest friend.</p>
+
+    <p class="intro-bio">Hi! I'm <strong><em>Chris!</em></strong></p>
 
     <br/>
     <!-- TODO: Add more things about dogs -->
     <!-- TODO: Talk about zelda -->
-    <h2>My special links</h2>
+    <h2 id="large-border">My special links</h2>
 
       <a href="http://www.chris-guzman.com" target="_blank">Visit my website to learn more!</a>
 
 
-      <p>My favorite website is <a href="http://www.neopets.com">Neopets</a> </p>
+      <p id="green-back">My favorite website is <a href="http://www.neopets.com">Neopets</a> </p>
 
       <a href="mailto:guzmantchris@gmail.com">Say hi!</a>
 
-      <img src="http://i.imgur.com/voqrWq1.jpg?2" alt="Link shredding guitar"/>
+      <ol id="colorful-list">
+        <li id="red-herring">Red Herring</li>
+        <div class="same-color">
+          <li id="orange-sherbert">Orange Sherbert</li>
+          <li id="yellow-zest">Yellow Zest</li>
+          <li id="green-apple">Green Apple</li>
+          <li id="blueberry">Blueberry</li>
+          <li id="indiegogo">Indiegogo</li>
+        </div>
+        <li id="violet">Violet</li>
+      </ol>
+
+      <ol id="clear">
+        <li>Onion</li>
+        <li>Carrot</li>
+      </ol>
+
+
+      <ul>
+        <li>Onion</li>
+        <li>Carrot</li>
+      </ul>
+
+      <ol id="clear">
+        <li>Onion</li>
+        <li>Carrot</li>
+      </ol>
+
+      <img id="pic" src="http://i.imgur.com/voqrWq1.jpg?2" alt="Link shredding guitar"/>
 
       <h6>Friends in order of how much they owe me</h6>
       <table>
@@ -35,11 +78,44 @@
           <th>Mike</th>
         </tr>
         <tr>
-          <td>$80</td>
-          <td>$40</td>
+          <td class="table-data">$80</td>
+          <td class="table-data">$40</td>
+        </tr>
+        <tr>
+          <th><img src=""></th>
+          <th>Mike</th>
         </tr>
       </table>
 
+<button id="clickMe" onclick="sayHi()">Click Me!</button>
 
 </body>
+
+  <script type="text/javascript">
+    function sayHi() {
+        alert ('Hi!');
+    }
+
+    var timesTried = 0;
+
+    var myElement = document.getElementById("green-back")
+    myElement.onmouseenter = function() {
+      if (timesTried <= 5) {
+        console.log("Entering!");
+        console.log("You've tried:" + timesTried + " times");
+        myElement.style.background = "purple"
+      }
+      else {
+        alert("Stop doing that");
+      }
+
+    }
+
+    myElement.onmouseleave = function() {
+      console.log("Leaving!");
+      myElement.style.background = "green"
+      timesTried++;
+    }
+
+  </script>
 </html>
