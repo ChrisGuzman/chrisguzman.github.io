@@ -64,7 +64,7 @@
     &lt;body&gt;
         &lt;h1&gt;My Page&lt;/h1&gt;
         &lt;p&gt;Hello World!&lt;/p&gt;
-        &lt;img src="http://placekitten.com/200/300" alt="cat"/&gt;
+        &lt;img src="http://placehold.it/200x300" alt="cat"/&gt;
     &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
@@ -92,7 +92,7 @@ document.getElementById(id);
         </code></pre>
               <p>To find:</p>
               <pre><code>
-&lt;img id="kittenPic" src="http://placekitten.com/200/300" alt="cat"/&gt;
+&lt;img id="kittenPic" src="http://placehold.it/200x300" alt="cat"/&gt;
         </code></pre>
               <p>We would use:</p>
               <pre><code>
@@ -149,26 +149,26 @@ var specficParagraph = document.getElementsByTagName('p')[2];
               <p>You can access and change attributes of DOM nodes using dot notation.</p>
               <p>To change this element:</p>
               <pre><code>
-&lt;img id="kittenPic" src="http://placekitten.com/200/300" alt="cat"/&gt;
+&lt;img id="kittenPic" src="http://placehold.it/200x300" alt="cat"/&gt;
         </code></pre>
               <p>We could change the src attribute this way:</p>
               <pre><code>
 var imgKitten = document.getElementById('kittenPic');
 var oldSrc = imgKitten.src;
-imgKitten.src = 'http://placekitten.com/100/500';
+imgKitten.src = 'http://placehold.it/100x500';
         </code></pre>
             </section>
             <section>
               <h3>DOM Nodes: Getting and Setting Attributes</h3>
               <p>You can also use <code>getAttribute/setAttribute:</code></p>
               <pre><code>
-&lt;img id="kittenPic" src="http://placekitten.com/200/300" alt="cat"/&gt;
+&lt;img id="kittenPic" src="http://placehold.it/200x300" alt="cat"/&gt;
         </code></pre>
               <p>We could change the src attribute this way:</p>
               <pre><code>
 var imgKitten = document.getElementById('kittenPic');
 var oldSrc = imgKitten.getAttribute('src');
-imgKitten.setAttribute('src', 'http://placekitten.com/100/500');
+imgKitten.setAttribute('src', 'http://placehold.it/100x500');
         </code></pre>
             </section>
             <section>
@@ -250,7 +250,7 @@ document.appendChild();
 var pageNode = document.getElementsByTagName('body')[0];
 
 var newImg = document.createElement('img');
-newImg.src = 'http://placekitten.com/400/300';
+newImg.src = 'http://placehold.it/400x300';
 newImg.style.border = '1px solid black';
 pageNode.appendChild(newImg);
 
