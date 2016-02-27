@@ -1,121 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>All about Chris</title>
+  <head>
+    <title>All about Chris</title>
+  </head>
+  <body>
+    <!-- intro -->
+    <h1>All about Chris</h1>
+    <p><img src="CGuzman.jpg"></p>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <img src="https://betamore.com/wp-content/uploads/2013/04/logo.png" alt="Betamore Logo">
 
-</head>
-<body>
+    <h2>My motto</h2>
+    <p>My motto is that I'll try <em>anything</em> <strong>twice</strong></p>
 
-  <nav>
-    <ul class="navigation">
-      <li>
-        <a href="/AboutMe/index.html">About Me</a>
-      </li>
-      <li>
-        <a href="/Resources/index.html">Resources</a>
-      </li>
-    </ul>
-  </nav>
-
-  <button id="clickMe" onclick="sayHi()">Click Me!</button>
+    <h3>Mission Statement</h3>
+    <p>To teach anyone who wants to learn to code</p>
 
 
-  <h1 id="center-title">Chris Guzman</h1>
-
-
-    <p class="red-back">Learn more about <span id="super-important">Chris!</span> He could be your bestest friend.</p>
-
-    <p class="intro-bio">Hi! I'm <strong><em>Chris!</em></strong></p>
+    <a href="https://www.twitter.com/speaktochris" title="My twitter" target="_blank">Follow me on twitter</a>
 
     <br/>
-    <!-- TODO: Add more things about dogs -->
-    <!-- TODO: Talk about zelda -->
-    <h2 id="large-border">My special links</h2>
 
-      <a href="http://www.chris-guzman.com" target="_blank">Visit my website to learn more!</a>
+    <a href="mailto:guzmantchris@gmail.com">Say hi!</a>
+    <!-- begin lists -->
+    <!--This is a comment -->
+    <h4>Project I've worked on</h4>
+    <ul>
+      <li>OrderUp android app</li>
+      <li>OrderUp website</li>
+      <li>Trailblazer</li>
+    </ul>
 
-
-      <p id="green-back">My favorite website is <a href="http://www.neopets.com">Neopets</a> </p>
-
-      <a href="mailto:guzmantchris@gmail.com">Say hi!</a>
-
-      <ol id="colorful-list">
-        <li id="red-herring">Red Herring</li>
-        <div class="same-color">
-          <li id="orange-sherbert">Orange Sherbert</li>
-          <li id="yellow-zest">Yellow Zest</li>
-          <li id="green-apple">Green Apple</li>
-          <li id="blueberry">Blueberry</li>
-          <li id="indiegogo">Indiegogo</li>
-        </div>
-        <li id="violet">Violet</li>
+    <h4>My skills</h4>
+    <ol>
+      <li>Public speaking</li>
+      <li>Public sneezing</li>
+      <li>Programming:</li>
+      <ol>
+        <li>HTML</li>
+        <li>JS</li>
+        <li>CSS</li>
       </ol>
+    </ol>
 
-      <ol id="clear">
-        <li>Onion</li>
-        <li>Carrot</li>
-      </ol>
+    <table>
+      <tr>
+        <th>Role</th>
+        <th>Company</th>
+        <th>Time</th>
+      </tr>
+      <tr>
+        <td>Fair Housing Specialist</td>
+        <td>BNI</td>
+        <td>2011-2013</td>
+      </tr>
+      <tr>
+        <td>Developer &amp; Ninja &copy;</td>
+        <td>OrderUp</td>
+        <td>2014-Now</td>
+      </tr>
+    </table>
 
-
-      <ul>
-        <li>Onion</li>
-        <li>Carrot</li>
-      </ul>
-
-      <ol id="clear">
-        <li>Onion</li>
-        <li>Carrot</li>
-      </ol>
-
-      <img id="pic" src="http://i.imgur.com/voqrWq1.jpg?2" alt="Link shredding guitar"/>
-
-      <h6>Friends in order of how much they owe me</h6>
-      <table>
-        <tr>
-          <th>Jane</th>
-          <th>Mike</th>
-        </tr>
-        <tr>
-          <td class="table-data">$80</td>
-          <td class="table-data">$40</td>
-        </tr>
-        <tr>
-          <th><img src=""></th>
-          <th>Mike</th>
-        </tr>
-      </table>
-
-<button id="clickMe" onclick="sayHi()">Click Me!</button>
-
-</body>
-
-  <script type="text/javascript">
-    function sayHi() {
-        alert ('Hi!');
-    }
-
-    var timesTried = 0;
-
-    var myElement = document.getElementById("green-back")
-    myElement.onmouseenter = function() {
-      if (timesTried <= 5) {
-        console.log("Entering!");
-        console.log("You've tried:" + timesTried + " times");
-        myElement.style.background = "purple"
-      }
-      else {
-        alert("Stop doing that");
-      }
-
-    }
-
-    myElement.onmouseleave = function() {
-      console.log("Leaving!");
-      myElement.style.background = "green"
-      timesTried++;
-    }
-
-  </script>
+  </body>
 </html>
