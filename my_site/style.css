@@ -68,10 +68,77 @@ td, th {
   padding: 50px;
   border: 1px solid #ff0000;
   margin: 10px 5px 3px 50px;
+  clear: both;
 }
 
 img.center-image  {
   display: block;
   margin: 0 auto;
+}
+
+#volunteer-float-right{
+  float: right;
+  width: 50%;
+  background: gray;
+}
+
+#work-float-left{
+  float: left;
+  width: 50%;
+  background: gray;
+}
+
+#projects-float-right{
+  float: right;
+  width: 50%;
+}
+
+#skills-float-left{
+  float: left;
+  width: 50%;
+}
+
+a:link    { color: #FF0000; } /* unvisited link */
+a:visited { color: #00FF00; } /* visited link */
+a:hover   { color: #FF00FF; } /* mouse over link */
+a:active  { color: #0000FF; } /* selected li */
+
+nav {
+  background: rgba(255,255,255,0.75);
+  height: 4em;
+  width: 100%;
+}
+
+ul.navigation {
+  background: none;
+  display: block;
+  list-style: none;
+  margin: auto;
+  width: 24em;
+  height: inherit;
+  position: relative;
+  padding: 0;
+}
+
+ul.navigation li {
+  display: inline-block;
+  float: left;
+  padding: 0.71em;
+}
+
+ul.navigation a {
+  color: black;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+ul.navigation a:hover {
+  background-color: black;
+  color: white;
+}
+
+#name-header{
+  margin-top: 30px;
 }
 

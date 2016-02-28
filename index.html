@@ -2,47 +2,57 @@
 <html>
   <head>
     <title>All about Chris</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <!-- intro -->
-    <h1>All about Chris</h1>
-    <p><img src="CGuzman.jpg"></p>
+    <h1 id="open-title">All about Chris</h1>
+    <div><img src="CGuzman.jpg" id="business-potrait"></div>
 
-    <img src="https://betamore.com/wp-content/uploads/2013/04/logo.png" alt="Betamore Logo">
+    <img id="betamore-logo" src="https://betamore.com/wp-content/uploads/2013/04/logo.png" alt="Betamore Logo">
 
     <h2>My motto</h2>
     <p>My motto is that I'll try <em>anything</em> <strong>twice</strong></p>
 
     <h3>Mission Statement</h3>
-    <p>To teach anyone who wants to learn to code</p>
+    <p>To teach <span class="underline-word">anyone</span> who wants to learn to code</p>
 
+    <div id="large-link">
 
-    <a href="https://www.twitter.com/speaktochris" title="My twitter" target="_blank">Follow me on twitter</a>
-
-    <br/>
+      <a href="https://www.twitter.com/speaktochris" title="My twitter" target="_blank">Follow me on twitter</a>
 
     <a href="mailto:guzmantchris@gmail.com">Say hi!</a>
-    <!-- begin lists -->
-    <!--This is a comment -->
-    <h4>Project I've worked on</h4>
-    <ul>
-      <li>OrderUp android app</li>
-      <li>OrderUp website</li>
-      <li>Trailblazer</li>
-    </ul>
 
-    <h4>My skills</h4>
-    <ol>
-      <li>Public speaking</li>
-      <li>Public sneezing</li>
-      <li>Programming:</li>
+    </div>
+    <!-- begin lists -->
+    <div id="projects-float-right">
+      <h4>Project I've worked on</h4>
+      <div class="project-list-items">
+        <ul>
+          <li>OrderUp android app</li>
+          <li>OrderUp website</li>
+          <li id="not-maintained">Trailblazer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="skills-float-left">
+      <h4>My skills</h4>
       <ol>
+        <li class="skills-list-item">Public speaking</li>
+        <li class="skills-list-item">Public sneezing</li>
+        <li class="skills-list-item">Programming:</li>
+        <li class="skills-list-item">Programming:</li>
+<!--       <ol>
         <li>HTML</li>
         <li>JS</li>
         <li>CSS</li>
+      </ol> -->
       </ol>
-    </ol>
+    </div>
 
+    <div id="clear-float">
     <table>
       <tr>
         <th>Role</th>
@@ -60,6 +70,10 @@
         <td>2014-Now</td>
       </tr>
     </table>
+    </div>
 
   </body>
+  <script type="text/javascript">
+    // alert("We love popups!")
+  </script>
 </html>

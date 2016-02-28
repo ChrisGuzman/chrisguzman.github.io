@@ -1,28 +1,117 @@
-ul.navigation {
-  background-color: white;
-  display: block;
-  list-style: none;
-  margin-top: 0;
-  width: 100%;
-  height: 35px;
+body {
+  background-attachment: fixed;
+  /*background: url(my_site/lordmeowington.png) black;*/
+  background: url(night-sky.jpeg) black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-ul.navigation li {
-  display: inline-block;
-  float: left;
-}
-
-ul.navigation a {
-  color: black;
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-}
-
-ul.navigation a:hover {
-  background-color: black;
+h1, h2, h3, h4 {
+  font-family: "Arial", sans-serif;
+  margin: auto;
+  width: 300px;
+  text-align: center;
   color: white;
 }
 
+img {
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+}
 
-/**/
+p {
+  margin: auto;
+  width: 300px;
+  text-align: center;
+  color: white;
+}
+
+p strong {
+ background-color: orange;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+li {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 10px;
+  font-family: sans-serif;
+  color: white;
+}
+
+#projects-float-right{
+ float: right;
+ width: 50%;
+}
+
+
+#skills-float-left{
+ float: left;
+ width: 50%;
+}
+
+.project-list-items {
+ /*background-color: red;*/
+}
+
+.skills-list-item {
+ /*background-color: blue;*/
+}
+
+#not-maintained{
+ background-color: orange;
+}
+
+.underline-word {
+  text-decoration: underline;
+}
+
+#large-link{
+  text-align: center;
+  clear: right;
+}
+
+#business-potrait {
+  padding: 10px 15px;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5em;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+  width: 300px;
+  text-align: center;
+  color: white;
+}
+
+#betamore-logo{
+  margin-top: 30px;
+}
+
+.project-list-items ul li {
+
+}
+
+#clear-float{
+  clear: left;
+}
+
+a{
+  color: white;
+}
+
+a:link    { color: white; } /* unvisited link */
+a:visited { color: white; } /* visited link */
+a:hover   { color: #FF00FF; } /* mouse over link */
+a:active  { color: #0000FF; } /* selected link */
+
