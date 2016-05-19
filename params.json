@@ -1,7 +1,7 @@
 {
   "name": "Chris Guzman",
-  "tagline": "Developer in training",
-  "body": "***\r\n## About me\r\nTowson U graduate. Nonprofit professional. Currently enrolled in the [Back-End Web Dev (BEWD) course at Betamore Academy](www.betamore.com/academy/back-end-web-development/).\r\n***\r\n\r\n## What we covered in BEWD's first class\r\n###### 2/13/14\r\nPaul showed us how he sets up his dev environment which includes:\r\n\r\n* [Sublime Text 3](www.sublimetext.com/3)\r\n* [iTerm (terminal replacement)](iterm2.com)\r\n* [Homebrew](brew.sh)\r\n* [Xcode](https://developer.apple.com/xcode/)\r\n  * Note: I had to troubleshoot homebrew and xcode on my own. Which was a learning experience I definitely recommend to everyone. It prepares you for the future and is so much more satisfying when you find the solution.\r\n* [Alfred (spotlight replacement)](alfredapp.com)\r\n* Git and github\r\n\r\nThe general layout of the course will be a flipped classroom. We will go over lessons outside of class and then code in class with our mentor. So they definitely encourage learning on your own.\r\n\r\nI plan on learning more ruby on my own with [code school](codeschool.com) and [Learn Ruby The Hard Way](ruby.learncodethehardway.org).",
+  "tagline": "Android, Rails, and iOS at [OrderUp](https://orderup.com), a Groupon Company",
+  "body": "***\r\n\r\n\r\n## Connect\r\n* [@speaktochris](https://twitter.com/speaktochris)\r\n* [github](https://github.com/ChrisGuzman)\r\n* [linkedin](https://www.linkedin.com/in/guzmantchris)\r\n* [blog](/blog.html)\r\n***\r\n\r\n\r\n## Talks\r\n* [typeahead.js](/typeahead.html)\r\n* [SMS and phone calls in your rails app](/twilio.html)\r\n\r\n***",
   "google": "UA-77955735-1",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
