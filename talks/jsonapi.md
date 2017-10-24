@@ -207,13 +207,7 @@ Accept: application/vnd.api+json
 
 ---
 
-```
-
-```
-
-
-
-## Relationships
+# Relationships
 
 ---
 
@@ -244,8 +238,8 @@ Accept: application/vnd.api+json
 #Request comments with an article
 GET /articles/1?include=comments
 
-#Request comments & authors with an article
-GET /articles/1?include=comments,authors
+#Request authors & photos with an article
+GET /articles/1?include=authors,photos
 
 #Request comments as well as the author of each of those comments
 GET /articles/1?include=comments.author
@@ -349,6 +343,14 @@ GET /articles?page[number]=3&page[size]=1
 ```
 
 _Note: JSON:API is agnostic about how the page query parameter can be used._
+
+---
+
+```bash
+GET /articles?include=comments,author 
+    &fields[people]=first_name,last_name
+    &sort=-date
+```
 
 ---
 
