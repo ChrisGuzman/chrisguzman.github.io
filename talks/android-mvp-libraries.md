@@ -1,7 +1,7 @@
-autoscale: true
 
-# Android Quick Start
-### Libraries I wish I knew
+##[fit] Android Libraries
+###[fit] I wish I knew when I started
+### github.com/ChrisGuzman/taasty
 
 ^
 less time on fragment in butter Knife
@@ -13,8 +13,15 @@ too many umms
 ---
 
 # Chris Guzman
-##  @speaktochris
-### Engineer - Groupon
+
+## Developer Advocate
+## Nexmo
+
+### @speaktochris | chris-guzman.com
+
+---
+
+![250%](/Users/chrisguzman/Downloads/Nexmo_VonageAPI.jpg)
 
 ---
 
@@ -35,20 +42,21 @@ too many umms
 
 ---
 
-# These libraries prevent you **reinventing the wheel** with every project.
+# These libraries prevent you from **reinventing the wheel** with every project.
 
-- [Butter Knife](https://github.com/JakeWharton/butterknife) v8.2
-- [Picasso](https://github.com/square/picasso) v2.5
-- [Gson](https://github.com/google/gson) v2.7
-- [Retrofit](https://github.com/square/retrofit) v2.1
-- [Realm](https://realm.io/docs/java/latest/) v1.1
-- [Dart & Henson](https://github.com/f2prateek/dart) v2.0
+- [Butter Knife](https://github.com/JakeWharton/butterknife) v8.5.1
+- [Picasso](https://github.com/square/picasso) v2.5.2
+- [Gson](https://github.com/google/gson) v2.8.0
+- [Retrofit](https://github.com/square/retrofit) v2.3.0
+- [Realm](https://realm.io/docs/java/latest/) v3.3.1
+- [Dart & Henson](https://github.com/f2prateek/dart) v2.0.2
 
 ^
 Write less code
 Be more productive
 
 ---
+
 # The 45 ~~Hour~~ Minute Hackathon
 
 ---
@@ -56,9 +64,20 @@ Be more productive
 # What should I make?
 
 ---
-# Introducing TTAaSTY
+
+# Introducing TaaSTY
+
 ---
-## Taco Techniques As a Service To You
+
+## Tacos as a Service To You
+
+---
+
+# Tinder for Tacos
+
+---
+
+![fit](/Users/chrisguzman/Downloads/tinder_burned.png)
 
 ---
 
@@ -69,13 +88,12 @@ Be more productive
 ---
 
 ```xml
-<ScrollView ...>
 
   <LinearLayout ... android:orientation="vertical">
 
-    <TextView android:id="@+id/description" .../>
-
     <ImageView android:id="@+id/taco_img" .../>
+
+    <TextView android:id="@+id/description" .../>
 
     <LinearLayout android:orientation="horizontal" .../>
 
@@ -85,11 +103,7 @@ Be more productive
 
     </LinearLayout>
 
-    <EditText android:id="@+id/tags" .../>
-
   </LinearLayout>
-
-</ScrollView>
 ```
 
 ---
@@ -118,7 +132,7 @@ Be more productive
 # Bind views in an activity
 
 ```xml
-<TextView android:id="@+id/description"
+<TextView android:id="@+id/name"
     ...
     />
 
@@ -126,13 +140,13 @@ Be more productive
 
 ```java
 public class MainActivity extends Activity {
-    @BindView(R.id.description) TextView description;
+    @BindView(R.id.name) TextView name;
 
     @Override
     protected void onCreate(Bundle bundle) {
         ...
         ButterKnife.bind(this);
-        description.setText("Tofu with Cheese on a tortilla");
+        name.setText("Tofu with Cheese on a tortilla");
     }
 }
 ```
@@ -145,7 +159,8 @@ Generates code that looks up views/resources and saves them as a property on the
 
 ```java
 public void bind(MainActivity activity) {
-  activity.description = (android.widget.TextView) activity.findViewById(2130968577);
+  activity.description =
+   (android.widget.TextView) activity.findViewById(2130968577);
 }
 ```
 ---
@@ -157,7 +172,7 @@ public class TacoFragment extends Fragment {
   @BindView(R.id.tags) EditText tags;
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle bundle) {
+  public View onCreateView(args...) {
     ...
     ButterKnife.bind(this, parentView);
     //Important!
@@ -165,14 +180,18 @@ public class TacoFragment extends Fragment {
     tags.setHint("Add tags. Eg: Tasty!, Want to try")
     return view;
   }
+ }
+ ```
 
+ ---
+
+```java
   @Override
   public void onDestroyView() {
     super.onDestroyView();
     //sets the views to null
     unbinder.unbind();
   }
-}
 ```
 
 ^
@@ -238,7 +257,7 @@ class MainActivity extends Activity {
 
 ```java
 @OnClick({ R.id.save, R.id.reject})
-public void actOnTaco(View view) {
+public void saveOrReject(View view) {
   if (view.getId() == R.reject) {
     Toast.makeText(this, "Ew Gross!", LENGTH_SHORT).show();
   }
@@ -246,7 +265,8 @@ public void actOnTaco(View view) {
     Toast.makeText(this, "Yummy :)", LENGTH_SHORT).show();
   }
   //TODO: implement
-  getNextTaco();
+  ButterKnife.apply(actionButtons, DISABLE);
+  getNewTaco();
 }
 ```
 
@@ -290,8 +310,7 @@ Batch operations on views
 ----
 
 ```java
-private void getNextTaco() {
-  ButterKnife.apply(actionButtons, DISABLE);
+private void getNewTaco() {
   //TODO: implement
   setTacoImage();
 }
@@ -397,7 +416,7 @@ Picasso.with(context).load(new File(...)).into(imageView3);
 
 ```java
 //Butter Knife!
-@BindView(R.id.taco_img) EditText tacoImg;
+@BindView(R.id.taco_img) ImageView tacoImg;
 
  private void setTacoImage() {
    Picasso.with(context)
@@ -407,8 +426,7 @@ Picasso.with(context).load(new File(...)).into(imageView3);
 ```
 
 ```java
-private void getNextTaco() {
-  ButterKnife.apply(actionButtons, DISABLE);
+private void getNewTaco() {
   setTacoImage();
   //TODO: implement
   loadTacoDescription();
@@ -454,26 +472,40 @@ private void getNextTaco() {
 
 ```java
 class Taco {
-  private String description;
-  private String imageUrl;
-  privte String tags;
+  private String name;
+  private String url;
   //not included in JSON serialization or deserialization
-  private transient boolean favorite;
-  Taco(String description, String imageUrl, String tags, boolean favorite) {
-  ....
+  private transient String imageUrl;
+  Taco(args...) {
+  	...
   }
 }
+```
+
+---
+
+```java
 
 // Serialize to JSON
-Taco breakfastTaco = new Taco("Eggs with syrup on pancake", "imgur.com/123", "breakfast", true);
+Taco breakfastTaco = new Taco(
+	"Eggs with syrup on pancake",
+	"tacofancy.com/breakfast",
+	"imgur.com/123");
 Gson gson = new Gson();
 String json = gson.toJson(breakfastTaco);
+```
 
-// ==> json is {description:"Eggs with syrup on pancake", imageUrl:"imgur.com/123", tags:"breakfast"}
+```json
+json = {
+  "name":"Eggs with syrup on pancake",
+  "url": "tacofancy.com/breakfast"
+ }
+```
 
+```java
 // Deserialize to POJO
 Taco yummyTaco = gson.fromJson(json, Taco.class);
-// ==> yummyTaco is just like breakfastTaco
+// ==> yummyTaco is just like breakfastTaco without imagUrl
 ```
 
 
@@ -538,7 +570,6 @@ Gson gson = gsonBuilder.create();
 
 ```java
 private void getNextTaco() {
-  ButterKnife.apply(actionButtons, DISABLE);
   setTacoImage();
   //TODO: implement
   loadTacoDescription();
@@ -567,7 +598,7 @@ private void getNextTaco() {
 - Built in support for:
   - Authentication
   - parse JSON to POJOs
-- Supports RxJava (the other new hotness)
+- Supports RxJava
 - Can be executed synchronously or asynchronously
 
 ---
@@ -579,17 +610,17 @@ public interface TacoApi {
     // Request method and URL specified in the annotation
     // Callback for the parsed response is the last parameter
 
-    @GET("random/")
+    @GET("random")
     Call<Taco> randomTaco(@Query("full-taco") boolean full);
 
-    @GET("contributions/")
-    Call<List<Contributor>> getContributors();
-
     @GET("contributions/{name}")
-    Call<Contributor> getContributors(@Path("name") String username));
+    Call<Contributor> getContributors(@Path("name") String username);
 
     @POST("recipe/new")
     Call<Recipe> createRecipe(@Body Recipe recipe);
+
+    @GET("contributions")
+    Call<List<Contributor>> getContributors();
 }
 ```
 
@@ -642,7 +673,8 @@ call.enqueue(new Callback<Recipe>() {
 - `@Path`: variable substitution for the API endpoint.
 - `@Query`: Add a query parameter.
 - `@Body`: Payload for the POST call (serialized from a Java object to a JSON string)
-- `@Header`: Add a header to the HTTP call
+- `@Headers`: Add a header to the HTTP call
+- `@Url`: Pass in a dynamic url
 
 ---
 
@@ -657,7 +689,7 @@ private Call<Taco> getFromNewAPI();
 ```java
 //Add headers
 @Headers({"User-Agent: tacobot"})
-@GET("contributions/")
+@GET("contributions")
 private Call<List<Contributor>> getContributors();
 ```
 
@@ -670,7 +702,7 @@ private void getNextTaco() {
 }
 
 private void loadTacoDescription() {
-  Call<Taco> call = tacoApi.randomTaco(false);
+  Call<Taco> call = tacoApi.randomTaco(true);
   call.enqueue(new Callback<Taco>() {
     @Override
     public void onResponse(Call<Taco> call, Response<Taco> response) {
@@ -710,10 +742,9 @@ private void loadTacoDescription() {
 
 ```java
 public class Taco extends RealmObject {
-  private String description;
-  private String tags;
+  private String name;
   private String imageUrl;
-  private boolean favorite;
+  private String url;
   //getters and setters
 }
 ```
@@ -729,12 +760,7 @@ Don't have to use getters/setters can be public attributes
 # Set-up Realm
 
 ```java
-// Create a RealmConfiguration
-// saves the Realm file in the app's "files" directory.
-RealmConfiguration realmConfig =
-  new RealmConfiguration.Builder(context).build();
-Realm.setDefaultConfiguration(realmConfig);
-
+Realm.init(this);
 // Get a Realm instance for this thread
 Realm realm = Realm.getDefaultInstance();
 ```
@@ -771,6 +797,30 @@ final RealmResults<Taco> likedTacos =
 
 ---
 
+# Typical SQL relationships
+
+- One to One
+- One to Many
+- Many to One
+- Many to Many
+
+
+---
+
+# Conditions
+
+- `between()`
+- `greaterThan()`, `lessThan()`
+- `greaterThanOrEqualTo()` & `lessThanOrEqualTo()`
+- `equalTo()` & `notEqualTo()`
+- `contains()`
+- `beginsWith()` & `endsWith()`
+- `isNull()` & `isNotNull()`
+- `isEmpty()` & `isNotEmpty()`
+- `or()` & `not()`
+
+---
+
 # Writing data
 
 ---
@@ -781,8 +831,8 @@ realm.executeTransaction(new Realm.Transaction() {
   @Override
   public void execute(Realm realm) {
     Taco taco = realm.createObject(Taco.class);
-    taco.setDescription("Spaghetti Squash on Fresh Corn Tortillas");
-    user.setImageUrl("http://tacoimages.com/1.jpg");
+    taco.setName("Spaghetti Squash on Fresh Corn Tortillas");
+    taco.setUrl("http://tacofancy.com/squash");
   }
 });
 ```
@@ -792,23 +842,20 @@ realm.executeTransaction(new Realm.Transaction() {
 ```java
 //Async
 realm.executeTransactionAsync(new Realm.Transaction() {
-            @Override
-            public void execute(Realm bgRealm) {
-                Taco taco = bgRealm.createObject(Taco.class);
-                taco.setDescription("Spaghetti Squash on Fresh Corn Tortillas");
-                user.setImageUrl("http://tacoimages.com/1.jpg");
-            }
-        }, new Realm.Transaction.OnSuccess() {
-            @Override
-            public void onSuccess() {
-                // Transaction was a success.
-            }
-        }, new Realm.Transaction.OnError() {
-            @Override
-            public void onError(Throwable error) {
-                // Transaction failed and was automatically canceled.
-            }
-        });
+	    public void execute(Realm bgRealm) {
+	        Taco taco = bgRealm.createObject(Taco.class);
+	        taco.name("Spaghetti Squash on Fresh Corn Tortillas");
+	        taco.setUrl("http://tacofancy.com/squash");
+	    }
+	}, new Realm.Transaction.OnSuccess() {
+	    public void onSuccess() {
+	        // Transaction was a success.
+	    }
+	}, new Realm.Transaction.OnError() {
+	    public void onError(Throwable error) {
+	        // Transaction failed and was automatically canceled.
+	    }
+	});
 ```
 
 ---
@@ -839,29 +886,6 @@ RealmResults<Taco> limeTacos = realm.where(Taco.class)
                                 .equalTo("ingredients.name", "Lime")
                                 .findAll();
 ```
-
----
-# Typical SQL relationships
-
-- One to One
-- One to Many
-- Many to One
-- Many to Many
-
-
----
-
-# Conditions
-
-- `between()`
-- `greaterThan()`, `lessThan()`
-- `greaterThanOrEqualTo()` & `lessThanOrEqualTo()`
-- `equalTo()` & `notEqualTo()`
-- `contains()`
-- `beginsWith()` & `endsWith()`
-- `isNull()` & `isNotNull()`
-- `isEmpty()` & `isNotEmpty()`
-- `or()` & `not()`
 
 ---
 
@@ -915,7 +939,6 @@ when a change listener is called the object/result is automatically updated
 
 - `@PrimaryKey` allows the use of `copyToRealmOrUpdate()`
 - Works with `Gson` and `Retrofit` easily
-- Now we can have custom getters and setters!
 
 
 ^
@@ -954,7 +977,7 @@ Use `@Required` to make Realm disallow null values.
 
 ```java
 //TODO: implement
-goToTacoListActivity();
+goToTacoDetailActivity();
 ```
 
 ---
@@ -968,20 +991,24 @@ Inject intent extras as a property on an object
 ---
 # Benefits
 
-- stop wasting time and write less of this:
-  - `intent.putExtra(EXTRA_TACOS_SAVED, true);`
-  - `pokemonId = getIntent().getExtras().getBoolean(EXTRA_TACOS_SAVED);
 - readable DSL for passing extras to intent
+- stop wasting time and write less of this:
+
+```java
+intent.putExtra("TACO_NAME", "Salsa Verde");
+tacoName = getIntent().getExtras().getString("TACO_NAME");
+```	
 
 ---
 
 ```java
-public class TacoListActivity extends Activity {
-  @InjectExtra boolean saved;
+public class TacoDetailActivity extends Activity {
+  @InjectExtra String name;
+  @Nullable @InjectExtra String imageUrl;
   //default value if left null
-  @Nullable @InjectExtra String withTag = "taco";
+  @Nullable @InjectExtra String tag = "taco";
   //Ingredient implements Parcelable
-  @Nullable @InjectExtra Ingredient withIngredient;
+  @Nullable @InjectExtra Ingredient ingredient;
 
   @Override
   public void onCreate(Bundle bundle) {
@@ -1001,11 +1028,12 @@ What if default injection is null?
 # Generate intent builders
 
 ```java
-//Start intent for TacoListActivity
-Intent intent = Henson.with(context)
-    .gotoTacoListActivity()
-    .saved(true)
-    .withIngredient(new Ingredient())
+//Start intent for TacoDetailActivity
+Intent intent = Henson.with(this)
+    .gotoTacoDetailActivity()
+    .name(taco.getName())
+    .url(taco.getUrl())
+    .imageUrl(taco.getImageUrl())
     .build();
 // tag is null
 startActivity(intent);
@@ -1046,11 +1074,7 @@ grep 'TODO: implement'
 
 ---
 
-# Questions?
+#[fit] Questions?
 
-- What did you learn?
-- What didn't make sense?
-
-@speaktochris
-chguzman@groupon.com
-http://bit.do/christalk
+## @speaktochris
+## chris-guzman.com
