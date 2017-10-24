@@ -1,9 +1,10 @@
-footer: Better APIs with JSON:API - @speaktochris - chris-guzman.com/jsonapi
+footer: Better APIs with JSON:API - @speaktochris - chris-guzman.com/jsonapi.pdf
 [.hide-footer]
 
 # {json:api}
 ##@speaktochris
-### chris-guzman.com/jsonapi
+##@NexmoDev
+### chris-guzman.com/jsonapi.pdf
 
 ---
 
@@ -220,13 +221,13 @@ Accept: application/vnd.api+json
 {
   "relationships": {
     "author": {
-      "links": {
-        "self": "/articles/1/relationships/author",
-        "related": "/articles/1/author"
-      },
       "data": { 
       	"type": "people",
       	"id": "9" 
+      },
+      "links": {
+        "related": "/articles/1/author",
+        "self": "/articles/1/relationships/author"
       }
     }
   }
@@ -243,12 +244,36 @@ Accept: application/vnd.api+json
 #Request comments with an article
 GET /articles/1?include=comments
 
-#Request comments & photos with an article
-GET /articles/1?include=comments,photos
+#Request comments & authors with an article
+GET /articles/1?include=comments,authors
 
 #Request comments as well as the author of each of those comments
 GET /articles/1?include=comments.author
 
+```
+
+---
+
+```json
+
+{ "data":[],
+  "included": [
+  {
+    "type": "people",
+    "id": "11",
+    "attributes": {
+      "name": "Oli Rumbelow",
+      "email": "oliver.rumbelow@example.com"
+    }
+  },
+  {
+    "type": "photos",
+    "id": "45",
+    "attributes": {
+      "url": "http://www.example.com/foobar",
+      "height": 1080,
+      "width": 1920
+    }}]}
 ```
 
 ---
@@ -264,19 +289,33 @@ GET /authors?filter[alive]=true
 #Request comments published after a date
 GET /comments?filter[published_after]=1990-01-01
 ```
-_Note: JSON API is agnostic about how the filter query parameter can be used._
+_Note: JSON:API is agnostic about how the filter query parameter can be used._
 
 ---
 
 ```bash
-#Request only the title, body, & author fields
-#for an article 
-GET /articles?fields[articles]=title,body,author
+#Request only the title, & status fields
+GET /articles?fields[articles]=title,status
 
-#Request only the title, body, & author fields
-#for an article and the name of the article's author
-GET /articles?&fields[articles]=title,body,author\
+#Request only the article's title & body fields
+#plus the name of the author
+GET /articles/1?&fields[articles]=title,body\
     include=author&fields[people]=name 
+```
+
+---
+
+```json
+{"data": [
+    {
+      "type": "articles",
+      "id": "3",
+      "attributes": {
+        "title": "NodeJS Best Practices",
+        "status": "published"
+      }
+    }
+]}
 ```
 
 ---
@@ -292,13 +331,13 @@ GET /authors?sort=name,alive
 GET /authors?sort=-name,alive
 ```
 
-_Note: JSON API is agnostic about how the sort query parameter can be used._
+_Note: JSON:API is agnostic about how the sort query parameter can be used._
 
 ---
 
 ```bash
 #Get the third of 13 pages, one article at a time
-GET /articles?page[number]=3&page[size]=1 HTTP/1.1
+GET /articles?page[number]=3&page[size]=1
 
 "links": {
   "self": "http://example.com/articles?page[number]=3&page[size]=1",
@@ -309,7 +348,7 @@ GET /articles?page[number]=3&page[size]=1 HTTP/1.1
 }
 ```
 
-_Note: JSON API is agnostic about how the page query parameter can be used._
+_Note: JSON:API is agnostic about how the page query parameter can be used._
 
 ---
 
@@ -325,8 +364,9 @@ GET /articles?include=comments,author
 
 ---
 
-```bash
-POST /photos
+# POST /photos
+
+```json
 
 {"data": {
     "type": "photos",
@@ -345,8 +385,9 @@ POST /photos
 
 ---
 
-```bash
-PATCH /articles/1
+# PATCH /articles/1
+
+```json
 
 {"data": {
     "type": "articles",
@@ -361,17 +402,20 @@ PATCH /articles/1
 
 ---
 
-
-```bash
 PATCH /articles/1/relationships/author
+
+```json
 
 {
   "data": {
     "type": "people", "id": "12"
   }
 }
+```
 
 PATCH /articles/1/relationships/tags
+
+```json
 {
   "data": [
     { "type": "tags", "id": "2" },
@@ -389,7 +433,8 @@ PATCH /articles/1/relationships/author
 PATCH /articles/1/relationships/tags
 {"data": []}
 
-DELETE /photos/1 HTTP/1.1
+DELETE /photos/1
+#empty body
 ```
 
 ---
@@ -429,5 +474,6 @@ DELETE /photos/1 HTTP/1.1
 
 
 # {json:api}
-##@speaktochris
-### chris-guzman.com/jsonapi
+## @speaktochris
+## @NexmoDev
+### chris-guzman.com/jsonapi.pdf
